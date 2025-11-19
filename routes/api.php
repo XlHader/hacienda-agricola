@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\PlotController;
 
 /**
  * Rutas públicas de la API
@@ -16,6 +17,13 @@ Route::prefix('v1')->group(function () {
   // Ejemplo:
   // Route::post('/auth/login', [AuthController::class, 'login']);
   // Route::post('/auth/register', [AuthController::class, 'register']);
+  Route::get('/plots', [PlotController::class, 'index']);          // Tarea 2.2
+  Route::post('/plots', [PlotController::class, 'store']);  // Tarea 2.3
+  Route::get('/plots/{plot}', [PlotController::class, 'show']);   //Tarea 2.4
+  Route::put('/plots/{plot}', [PlotController::class, 'update']);   //Tarea 2.5
+
+
+
 });
 
 /**
@@ -35,4 +43,5 @@ Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
   // Route::apiResource('customers', CustomerController::class);
   // Route::apiResource('orders', OrderController::class);
   // Route::post('/auth/logout', [AuthController::class, 'logout']);
+  
 });
