@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CustomerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PlotController;
@@ -40,8 +41,14 @@ Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
   // Aquí irán las rutas protegidas del API
   // Ejemplo:
   // Route::apiResource('products', ProductController::class);
-  // Route::apiResource('customers', CustomerController::class);
   // Route::apiResource('orders', OrderController::class);
   // Route::post('/auth/logout', [AuthController::class, 'logout']);
-  
+
+  /**
+   * Rutas de gestión de clientes (HU-005)
+   * Contexto: Venta y Distribución
+   */
+  Route::apiResource('customers', CustomerController::class);
+  Route::patch('customers/{customer}/toggle-status', [CustomerController::class, 'toggleStatus'])
+    ->name('customers.toggle-status');
 });
