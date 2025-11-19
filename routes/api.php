@@ -20,6 +20,8 @@ Route::prefix('v1')->group(function () {
   Route::get('/plots', [PlotController::class, 'index']);          // Tarea 2.2
   Route::post('/plots', [PlotController::class, 'store']);  // Tarea 2.3
   Route::get('/plots/{plot}', [PlotController::class, 'show']);   //Tarea 2.4
+  Route::put('/plots/{plot}', [PlotController::class, 'update']);   //Tarea 2.5
+
 
 
 });
