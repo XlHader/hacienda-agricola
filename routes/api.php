@@ -29,5 +29,8 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('customers', CustomerController::class);
     Route::patch('customers/{customer}/toggle-status', [CustomerController::class, 'toggleStatus'])
       ->name('customers.toggle-status');
+
+    Route::apiResource('harvests', \App\Http\Controllers\Api\HarvestController::class);
+
   });
 });
