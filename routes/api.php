@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CustomerController;
-use App\Http\Controllers\Api\PlantingSeasonController;
 use App\Http\Controllers\Api\PlotController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,12 +21,6 @@ Route::prefix('v1')->group(function () {
     Route::post('auth/refresh', [AuthController::class, 'refresh']);
 
     Route::apiResource('plots', PlotController::class);
-
-    /**
-     * Rutas de gestión de temporadas de siembra (HU-003)
-     * Contexto: Cultivo
-     */
-    Route::apiResource('planting-seasons', PlantingSeasonController::class);
 
     /**
      * Rutas de gestión de clientes (HU-005)
