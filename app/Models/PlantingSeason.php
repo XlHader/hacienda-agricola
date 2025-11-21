@@ -7,18 +7,7 @@ use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany};
 
 class PlantingSeason extends Model
 {
-    protected $fillable = [
-        'plot_id',
-        'variety_id',
-        'planting_date',
-        'expected_harvest_date',
-        'status'
-    ];
-
-    protected $casts = [
-        'planting_date' => 'date',
-        'expected_harvest_date' => 'date',
-    ];
+    protected $fillable = ['plot_id', 'variety_id', 'planting_date', 'expected_harvest_date', 'status'];
 
     public function plot(): BelongsTo
     {
